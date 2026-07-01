@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión — TOP NAVI AUTO Admin</title>
+  <link rel="stylesheet" href="/admin/assets/css/admin-base.css" />
+  <link rel="stylesheet" href="/admin/assets/css/admin-components.css" />
+</head>
+<body>
+  <main class="admin-login">
+    <form class="admin-card" data-js="admin-login-form">
+      <h1>TOP NAVI AUTO</h1>
+      <p>Panel de administración</p>
+
+      <div class="admin-form-field">
+        <label for="admin-email">Correo electrónico</label>
+        <input class="admin-form-field__input" type="email" id="admin-email" name="email" data-js="admin-email" required />
+      </div>
+      <div class="admin-form-field">
+        <label for="admin-password">Contraseña</label>
+        <input class="admin-form-field__input" type="password" id="admin-password" name="password" data-js="admin-password" required />
+      </div>
+      <button type="submit" class="admin-btn" data-js="admin-login-submit">Ingresar</button>
+      <p data-js="admin-login-feedback"></p>
+    </form>
+  </main>
+
+  <script type="module" src="/admin/assets/js/admin-main.js"></script>
+</body>
+</html>

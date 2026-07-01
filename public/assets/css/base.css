@@ -1,0 +1,153 @@
+/* ==========================================================================
+   TOP NAVI AUTO — Base styles: reset, design tokens, typography
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Inter:wght@400;600&display=swap');
+
+/* --------------------------------------------------------------------------
+   Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-bg: #0D0D0D;
+  --color-primary: #E8006F;
+  --color-primary-hover: #FF2D8A;
+  --color-surface: #1A1A1A;
+  --color-surface-alt: #222222;
+  --color-border: #2A2A2A;
+  --color-text: #F5F5F5;
+  --color-text-muted: rgba(245, 245, 245, 0.5);
+
+  /* Typography */
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --container: 980px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Modern reset
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Base document styles
+   -------------------------------------------------------------------------- */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  color: var(--color-text);
+}
+
+p + p {
+  margin-top: var(--space-sm);
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+strong,
+b {
+  font-weight: 600;
+}

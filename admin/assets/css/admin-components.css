@@ -1,0 +1,96 @@
+/* ==========================================================================
+   TOP NAVI AUTO — Admin UI components
+   ========================================================================== */
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+.admin-sidebar__logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-lg);
+  display: block;
+}
+
+.admin-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.admin-sidebar__link {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+.admin-sidebar__link:hover,
+.admin-sidebar__link--active {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+.admin-main {
+  padding: var(--space-lg);
+}
+
+.admin-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.admin-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.admin-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.admin-form-field__input,
+.admin-form-field__select,
+.admin-form-field__textarea {
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  color: var(--color-text);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promociones — TOP NAVI AUTO Admin</title>
+  <link rel="stylesheet" href="/admin/assets/css/admin-base.css" />
+  <link rel="stylesheet" href="/admin/assets/css/admin-components.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI AUTO</a>
+      <nav class="admin-sidebar__nav">
+        <a href="/admin/dashboard.html" class="admin-sidebar__link">Dashboard</a>
+        <a href="/admin/products.html" class="admin-sidebar__link">Productos</a>
+        <a href="/admin/promotions.html" class="admin-sidebar__link admin-sidebar__link--active">Promociones</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <h1>Promociones</h1>
+      <table class="admin-table" data-js="admin-promotions-table">
+        <thead>
+          <tr>
+            <th>Promoción</th>
+            <th>Vigencia</th>
+            <th>Descuento</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody data-js="admin-promotions-tbody"></tbody>
+      </table>
+    </main>
+  </div>
+
+  <script type="module" src="/admin/assets/js/admin-main.js"></script>
+  <script type="module" src="/admin/assets/js/admin-promotions.js"></script>
+  <script type="module" src="/admin/assets/js/admin-upload.js"></script>
+</body>
+</html>

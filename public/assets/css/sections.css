@@ -1,0 +1,176 @@
+/* ==========================================================================
+   TOP NAVI AUTO — Section-specific styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Stats
+   -------------------------------------------------------------------------- */
+.stats {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+/* --------------------------------------------------------------------------
+   Promotions
+   -------------------------------------------------------------------------- */
+.promotions__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .promotions__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Catalog
+   -------------------------------------------------------------------------- */
+.catalog__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  justify-content: center;
+}
+
+.catalog__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 640px) {
+  .catalog__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalog__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Compatibility
+   -------------------------------------------------------------------------- */
+.compatibility__form {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .compatibility__form {
+    grid-template-columns: repeat(3, 1fr) auto;
+    align-items: end;
+  }
+}
+
+.compatibility__result {
+  margin-top: var(--space-md);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Pillars (Why TOP NAVI)
+   -------------------------------------------------------------------------- */
+.pillars__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .pillars__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pillars__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pillar {
+  text-align: center;
+}
+
+.pillar__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-sm);
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   B2B distributors
+   -------------------------------------------------------------------------- */
+.b2b {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.b2b__grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .b2b__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.b2b__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Testimonials
+   -------------------------------------------------------------------------- */
+.testimonials__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Contact
+   -------------------------------------------------------------------------- */
+.contact__grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .contact__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}

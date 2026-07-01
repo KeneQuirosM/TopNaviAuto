@@ -1,0 +1,241 @@
+/* ==========================================================================
+   TOP NAVI AUTO — Reusable UI components (BEM)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Button
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-text);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-hover);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Badge
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.badge--primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   Card
+   -------------------------------------------------------------------------- */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.card__title {
+  margin-bottom: var(--space-xs);
+}
+
+.card__text {
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Stat
+   -------------------------------------------------------------------------- */
+.stat {
+  text-align: center;
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-primary);
+}
+
+.stat__label {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   Promo banner
+   -------------------------------------------------------------------------- */
+.promo-banner {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  text-align: center;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Form
+   -------------------------------------------------------------------------- */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.form-field__label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.form-field__input,
+.form-field__textarea,
+.form-field__select {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  color: var(--color-text);
+}
+
+.form-field__input:focus,
+.form-field__textarea:focus,
+.form-field__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-field__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* --------------------------------------------------------------------------
+   Product card
+   -------------------------------------------------------------------------- */
+.product-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card__media {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-surface-alt);
+}
+
+.product-card__body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+.product-card__title {
+  font-size: 1.1rem;
+}
+
+.product-card__price {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Testimonial
+   -------------------------------------------------------------------------- */
+.testimonial {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.testimonial__quote {
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.testimonial__author {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Floating WhatsApp button
+   -------------------------------------------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 200;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.05);
+}
+
+.whatsapp-float__icon {
+  width: 28px;
+  height: 28px;
+}

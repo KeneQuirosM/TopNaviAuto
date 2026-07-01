@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOP NAVI AUTO — Radios y pantallas para tu vehículo</title>
+  <meta name="description" content="TOP NAVI AUTO: radios y pantallas para vehículos con producción propia desde China. Marca propia, calidad OEM, distribución B2B." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="/public/assets/css/base.css" />
+  <link rel="stylesheet" href="/public/assets/css/layout.css" />
+  <link rel="stylesheet" href="/public/assets/css/components.css" />
+  <link rel="stylesheet" href="/public/assets/css/sections.css" />
+  <link rel="stylesheet" href="/public/assets/css/animations.css" />
+</head>
+<body>
+
+  <header>
+    <!-- 1. Banner de promoción -->
+    <div id="promo-banner" class="promo-banner" data-js="promo-banner">
+      <p>Envío gratis en pedidos mayoristas + 12 meses de garantía en toda la línea TOP NAVI</p>
+    </div>
+
+    <!-- 2. Nav sticky -->
+    <nav class="nav" aria-label="Navegación principal">
+      <div class="container nav__inner">
+        <a href="/" class="nav__logo">TOP NAVI <span>AUTO</span></a>
+
+        <ul class="nav__links" data-js="nav-links">
+          <li><a href="#catalogo" class="nav__link">Catálogo</a></li>
+          <li><a href="#promociones" class="nav__link">Promociones</a></li>
+          <li><a href="#compatibilidad" class="nav__link">Compatibilidad</a></li>
+          <li><a href="#nosotros" class="nav__link">Nosotros</a></li>
+          <li><a href="#distribuidores" class="nav__link">Distribuidores</a></li>
+          <li><a href="#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <a href="#contacto" class="btn btn--primary">Cotizar ahora</a>
+          <button type="button" class="nav__toggle" data-js="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- 3. Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="badge badge--primary">Marca propia · Fabricación en China</span>
+          <h1>Radios y pantallas que tu vehículo merece</h1>
+          <p class="hero__subheadline">
+            Diseño, producción y distribución propia de sistemas multimedia automotrices.
+            Calidad OEM, garantía real y soporte técnico dedicado para clientes y distribuidores.
+          </p>
+          <div class="hero__actions">
+            <a href="#catalogo" class="btn btn--primary">Ver catálogo</a>
+            <a href="#contacto" class="btn btn--secondary">Hablar con un asesor</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <img src="/public/assets/img/hero-radio-mockup.png" alt="Pantalla TOP NAVI AUTO instalada en tablero de vehículo" data-js="hero-mockup" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Stats -->
+    <section class="stats section" aria-label="Cifras de TOP NAVI AUTO">
+      <div class="container grid grid--4">
+        <div class="stat">
+          <p class="stat__value" data-js="stat-units">10K+</p>
+          <p class="stat__label">Unidades vendidas</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">100%</p>
+          <p class="stat__label">Marca propia</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">12M</p>
+          <p class="stat__label">Meses de garantía</p>
+        </div>
+        <div class="stat">
+          <p class="stat__value">OEM</p>
+          <p class="stat__label">Compatibilidad de fábrica</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Promociones activas -->
+    <section id="promociones" class="promotions section">
+      <div class="container">
+        <div class="section__header">
+          <h2>Promociones activas</h2>
+          <p>Aprovecha nuestras ofertas por tiempo limitado</p>
+        </div>
+        <div class="promotions__grid" data-js="promotions-grid">
+          <article class="card">
+            <span class="badge badge--primary">Cargando...</span>
+            <h3 class="card__title">Promoción destacada</h3>
+            <p class="card__text">Las promociones activas se cargarán próximamente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Catálogo de productos -->
+    <section id="catalogo" class="catalog section">
+      <div class="container">
+        <div class="section__header">
+          <h2>Catálogo de productos</h2>
+          <p>Radios y pantallas para cada tipo de vehículo</p>
+        </div>
+
+        <div class="catalog__filters" data-js="catalog-filters">
+          <button type="button" class="btn btn--secondary" data-filter="todos">Todos</button>
+          <button type="button" class="btn btn--secondary" data-filter="android">Android</button>
+          <button type="button" class="btn btn--secondary" data-filter="carplay">CarPlay</button>
+          <button type="button" class="btn btn--secondary" data-filter="camaras">Cámaras</button>
+        </div>
+
+        <div class="catalog__grid" data-js="catalog-grid">
+          <!-- Los productos se inyectan dinámicamente desde catalog.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Compatibilidad de vehículos -->
+    <section id="compatibilidad" class="compatibility section">
+      <div class="container">
+        <div class="section__header">
+          <h2>Compatibilidad de vehículos</h2>
+          <p>Encuentra la pantalla ideal para tu marca, modelo y año</p>
+        </div>
+
+        <form class="compatibility__form" data-js="compatibility-form">
+          <div class="form-field">
+            <label class="form-field__label" for="compat-brand">Marca</label>
+            <select id="compat-brand" name="brand" class="form-field__select" data-js="compat-brand" required>
+              <option value="">Selecciona marca</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-field__label" for="compat-model">Modelo</label>
+            <select id="compat-model" name="model" class="form-field__select" data-js="compat-model" required>
+              <option value="">Selecciona modelo</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-field__label" for="compat-year">Año</label>
+            <select id="compat-year" name="year" class="form-field__select" data-js="compat-year" required>
+              <option value="">Selecciona año</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--primary">Buscar</button>
+        </form>
+
+        <p class="compatibility__result" data-js="compatibility-result"></p>
+      </div>
+    </section>
+
+    <!-- 8. Por qué TOP NAVI -->
+    <section id="nosotros" class="pillars section">
+      <div class="container">
+        <div class="section__header">
+          <h2>Por qué TOP NAVI AUTO</h2>
+          <p>Tecnología propia, respaldo real</p>
+        </div>
+        <div class="pillars__grid">
+          <div class="pillar">
+            <h3 class="pillar__title">Procesador de alto rendimiento</h3>
+            <p class="pillar__text">Chipsets octa-core para navegación y multimedia sin lag.</p>
+          </div>
+          <div class="pillar">
+            <h3 class="pillar__title">Pantalla QLED de alta definición</h3>
+            <p class="pillar__text">Colores reales y brillo optimizado para exteriores.</p>
+          </div>
+          <div class="pillar">
+            <h3 class="pillar__title">Android Auto &amp; CarPlay</h3>
+            <p class="pillar__text">Integración inalámbrica nativa con tu smartphone.</p>
+          </div>
+          <div class="pillar">
+            <h3 class="pillar__title">Soporte técnico dedicado</h3>
+            <p class="pillar__text">Garantía directa de fábrica y asesoría de instalación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Sección B2B distribuidores -->
+    <section id="distribuidores" class="b2b section">
+      <div class="container b2b__grid">
+        <div class="b2b__content">
+          <span class="badge badge--primary">Para distribuidores</span>
+          <h2>Conviértete en distribuidor autorizado</h2>
+          <p>Precios especiales por volumen, soporte de marketing y stock garantizado directo de fábrica.</p>
+          <div class="b2b__benefits">
+            <p>✓ Precios mayoristas escalonados</p>
+            <p>✓ Material publicitario incluido</p>
+            <p>✓ Garantía y reemplazos ágiles</p>
+          </div>
+          <a href="#contacto" class="btn btn--primary">Quiero ser distribuidor</a>
+        </div>
+        <div class="b2b__media">
+          <img src="/public/assets/img/b2b-warehouse.png" alt="Bodega de distribución TOP NAVI AUTO" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Testimonios -->
+    <section class="testimonials section">
+      <div class="container">
+        <div class="section__header">
+          <h2>Lo que dicen nuestros clientes</h2>
+        </div>
+        <div class="testimonials__grid" data-js="testimonials-grid">
+          <blockquote class="testimonial">
+            <p class="testimonial__quote">"Excelente calidad de imagen y muy fácil de instalar."</p>
+            <cite class="testimonial__author">— Cliente verificado</cite>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p class="testimonial__quote">"Como distribuidor, el soporte y la garantía han sido clave."</p>
+            <cite class="testimonial__author">— Distribuidor autorizado</cite>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p class="testimonial__quote">"El CarPlay inalámbrico funciona perfecto desde el día uno."</p>
+            <cite class="testimonial__author">— Cliente verificado</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Formulario de contacto -->
+    <section id="contacto" class="contact section">
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <h2>Hablemos de tu proyecto</h2>
+          <p>Cotiza tu pedido o resuelve tus dudas con nuestro equipo comercial.</p>
+          <p><strong>Correo:</strong> ventas@topnaviauto.com</p>
+          <p><strong>Teléfono:</strong> +52 000 000 0000</p>
+        </div>
+        <form class="contact__form" data-js="contact-form">
+          <div class="form-field">
+            <label class="form-field__label" for="contact-name">Nombre</label>
+            <input class="form-field__input" type="text" id="contact-name" name="name" data-js="contact-name" required />
+          </div>
+          <div class="form-field">
+            <label class="form-field__label" for="contact-email">Correo electrónico</label>
+            <input class="form-field__input" type="email" id="contact-email" name="email" data-js="contact-email" required />
+          </div>
+          <div class="form-field">
+            <label class="form-field__label" for="contact-phone">Teléfono</label>
+            <input class="form-field__input" type="tel" id="contact-phone" name="phone" data-js="contact-phone" />
+          </div>
+          <div class="form-field">
+            <label class="form-field__label" for="contact-message">Mensaje</label>
+            <textarea class="form-field__textarea" id="contact-message" name="message" data-js="contact-message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" data-js="contact-submit">Enviar mensaje</button>
+          <p class="contact__feedback" data-js="contact-feedback"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 12. Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="nav__logo">TOP NAVI <span>AUTO</span></p>
+          <p class="card__text">Radios y pantallas para vehículos, producción propia desde China.</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Navegación</h3>
+          <ul>
+            <li><a href="#catalogo" class="nav__link">Catálogo</a></li>
+            <li><a href="#promociones" class="nav__link">Promociones</a></li>
+            <li><a href="#compatibilidad" class="nav__link">Compatibilidad</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Empresa</h3>
+          <ul>
+            <li><a href="#nosotros" class="nav__link">Nosotros</a></li>
+            <li><a href="#distribuidores" class="nav__link">Distribuidores</a></li>
+            <li><a href="#contacto" class="nav__link">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Contacto</h3>
+          <ul>
+            <li>ventas@topnaviauto.com</li>
+            <li>+52 000 000 0000</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 TOP NAVI AUTO. Todos los derechos reservados.</p>
+        <p><a href="/admin/" class="nav__link">Acceso administrador</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 13. Botón WhatsApp flotante -->
+  <a
+    href="https://wa.me/50000000000"
+    class="whatsapp-float"
+    data-js="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+  >
+    <img src="/public/assets/img/whatsapp-icon.svg" alt="" class="whatsapp-float__icon" />
+  </a>
+
+  <script type="module" src="/public/assets/js/main.js"></script>
+</body>
+</html>
