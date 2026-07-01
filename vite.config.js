@@ -13,7 +13,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'public/index.html'),
+        main: resolve(__dirname, 'index.html'),
         adminIndex: resolve(__dirname, 'admin/index.html'),
         adminDashboard: resolve(__dirname, 'admin/dashboard.html'),
         adminProducts: resolve(__dirname, 'admin/products.html'),
