@@ -10,28 +10,158 @@
 <body>
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI AUTO</a>
+      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI <span>AUTO</span></a>
       <nav class="admin-sidebar__nav">
-        <a href="/admin/dashboard.html" class="admin-sidebar__link">Dashboard</a>
         <a href="/admin/products.html" class="admin-sidebar__link">Productos</a>
         <a href="/admin/promotions.html" class="admin-sidebar__link admin-sidebar__link--active">Promociones</a>
+        <a href="/admin/contacts.html" class="admin-sidebar__link">Contactos</a>
+        <button type="button" class="admin-sidebar__link admin-sidebar__link--logout" data-js="logout-button">
+          Cerrar sesión
+        </button>
       </nav>
     </aside>
+
     <main class="admin-main">
-      <h1>Promociones</h1>
-      <table class="admin-table" data-js="admin-promotions-table">
-        <thead>
-          <tr>
-            <th>Promoción</th>
-            <th>Vigencia</th>
-            <th>Descuento</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody data-js="admin-promotions-tbody"></tbody>
-      </table>
+      <header class="admin-main__header">
+        <h1 class="admin-main__title">Promociones</h1>
+        <p class="admin-main__user">Sesión: <span data-js="current-user-name">Administrador</span></p>
+      </header>
+
+      <div class="admin-main__content">
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">Promociones</h2>
+            <button type="button" class="admin-btn admin-btn--primary" data-js="open-promotion-form">
+              Agregar promoción
+            </button>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="data-table__head">Título</th>
+                <th class="data-table__head">Producto</th>
+                <th class="data-table__head">Descuento</th>
+                <th class="data-table__head">Inicio</th>
+                <th class="data-table__head">Fin</th>
+                <th class="data-table__head">Estado</th>
+                <th class="data-table__head">Acciones</th>
+              </tr>
+            </thead>
+            <tbody data-js="promotions-table-body">
+              <tr class="data-table__row">
+                <td class="data-table__cell">Combo Android 13 + Cámara</td>
+                <td class="data-table__cell">TN-9 Android 13</td>
+                <td class="data-table__cell">20%</td>
+                <td class="data-table__cell">01/07/2026</td>
+                <td class="data-table__cell">15/07/2026</td>
+                <td class="data-table__cell"><span class="status-badge status-badge--active">Activa</span></td>
+                <td class="data-table__cell">
+                  <div class="data-table__actions">
+                    <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-js="edit-promotion">Editar</button>
+                    <button type="button" class="admin-btn admin-btn--danger admin-btn--sm" data-js="delete-promotion">Eliminar</button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="data-table__row data-table__row--alt">
+                <td class="data-table__cell">Envío gratis mayoristas</td>
+                <td class="data-table__cell">—</td>
+                <td class="data-table__cell">0%</td>
+                <td class="data-table__cell">01/06/2026</td>
+                <td class="data-table__cell">30/06/2026</td>
+                <td class="data-table__cell"><span class="status-badge status-badge--inactive">Vencida</span></td>
+                <td class="data-table__cell">
+                  <div class="data-table__actions">
+                    <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-js="edit-promotion">Editar</button>
+                    <button type="button" class="admin-btn admin-btn--danger admin-btn--sm" data-js="delete-promotion">Eliminar</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="pagination" data-js="promotions-pagination">
+            <button type="button" class="pagination__btn" data-js="promotions-pagination-prev" disabled>‹</button>
+            <button type="button" class="pagination__btn pagination__btn--active">1</button>
+            <button type="button" class="pagination__btn" data-js="promotions-pagination-next">›</button>
+          </div>
+        </div>
+      </div>
     </main>
+  </div>
+
+  <!-- Modal: formulario de promoción -->
+  <div class="modal-overlay is-hidden" data-js="promotion-modal">
+    <div class="modal">
+      <h2 class="modal__title" data-js="promotion-modal-title">Agregar promoción</h2>
+
+      <form class="form-admin" data-js="promotion-form">
+        <div class="form-admin__group">
+          <label class="form-admin__label" for="promotion-title">Título</label>
+          <input class="form-admin__input" type="text" id="promotion-title" name="title" data-js="promotion-title" required />
+        </div>
+
+        <div class="form-admin__group">
+          <label class="form-admin__label" for="promotion-description">Descripción</label>
+          <textarea class="form-admin__textarea" id="promotion-description" name="description" data-js="promotion-description"></textarea>
+        </div>
+
+        <div class="form-admin__row">
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="promotion-discount">% Descuento</label>
+            <input class="form-admin__input" type="number" id="promotion-discount" name="discount_pct" data-js="promotion-discount" min="0" max="100" required />
+          </div>
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="promotion-product">Producto (opcional)</label>
+            <select class="form-admin__select" id="promotion-product" name="product_id" data-js="promotion-product">
+              <option value="">Ninguno</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-admin__row">
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="promotion-starts-at">Fecha inicio</label>
+            <input class="form-admin__input" type="datetime-local" id="promotion-starts-at" name="starts_at" data-js="promotion-starts-at" required />
+          </div>
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="promotion-ends-at">Fecha fin</label>
+            <input class="form-admin__input" type="datetime-local" id="promotion-ends-at" name="ends_at" data-js="promotion-ends-at" required />
+          </div>
+        </div>
+
+        <div class="form-admin__group">
+          <label class="form-admin__label" for="promotion-cta-text">Texto CTA</label>
+          <input class="form-admin__input" type="text" id="promotion-cta-text" name="cta_text" data-js="promotion-cta-text" placeholder="Aprovechar oferta" />
+        </div>
+
+        <div class="form-admin__group">
+          <label class="form-admin__checkbox-label" for="promotion-show-countdown">
+            <input type="checkbox" id="promotion-show-countdown" name="show_countdown" data-js="promotion-show-countdown" />
+            Mostrar countdown en el banner
+          </label>
+        </div>
+
+        <div class="form-admin__actions">
+          <button type="button" class="admin-btn admin-btn--ghost" data-js="close-promotion-form">Cancelar</button>
+          <button type="submit" class="admin-btn admin-btn--primary" data-js="save-promotion">Guardar promoción</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: confirmación de eliminación -->
+  <div class="modal-overlay is-hidden" data-js="confirm-modal">
+    <div class="modal">
+      <h2 class="modal__title">Eliminar promoción</h2>
+      <p class="modal__body" data-js="confirm-modal-message">
+        ¿Seguro que deseas eliminar esta promoción? Esta acción no se puede deshacer.
+      </p>
+      <div class="modal__actions">
+        <button type="button" class="admin-btn admin-btn--ghost" data-js="confirm-modal-cancel">Cancelar</button>
+        <button type="button" class="admin-btn admin-btn--danger" data-js="confirm-modal-accept">Eliminar</button>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="/admin/assets/js/admin-main.js"></script>

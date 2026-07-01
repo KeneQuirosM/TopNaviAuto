@@ -1,83 +1,281 @@
 /* ==========================================================================
-   TOP NAVI AUTO — Admin UI components
+   TOP NAVI AUTO — Admin UI components (BEM)
    ========================================================================== */
 
-.admin-layout {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  min-height: 100vh;
-}
-
-.admin-login {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-md);
-}
-
-.admin-login .admin-card {
-  width: 100%;
-  max-width: 360px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.admin-sidebar {
-  background-color: var(--color-surface);
-  border-right: 1px solid var(--color-border);
-  padding: var(--space-md);
-}
-
-.admin-sidebar__logo {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  margin-bottom: var(--space-lg);
-  display: block;
-}
-
-.admin-sidebar__nav {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.admin-sidebar__link {
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
-}
-
-.admin-sidebar__link:hover,
-.admin-sidebar__link--active {
-  background-color: var(--color-surface-alt);
-  color: var(--color-text);
-}
-
-.admin-main {
-  padding: var(--space-lg);
-}
-
+/* --------------------------------------------------------------------------
+   Card
+   -------------------------------------------------------------------------- */
 .admin-card {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-md);
 }
 
-.admin-table {
+.admin-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.admin-card__title {
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Stat cards (dashboard)
+   -------------------------------------------------------------------------- */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+@media (min-width: 900px) {
+  .stat-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.stat-card__value {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--color-primary);
+}
+
+.stat-card__label {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   Data table
+   -------------------------------------------------------------------------- */
+.data-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.admin-table th,
-.admin-table td {
+.data-table__head {
   text-align: left;
   padding: var(--space-sm);
   border-bottom: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
+.data-table__row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table__row--alt {
+  background-color: var(--color-surface-2);
+}
+
+.data-table__cell {
+  padding: var(--space-sm);
+  vertical-align: middle;
+}
+
+.data-table__thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+}
+
+.data-table__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------------
+   Admin form
+   -------------------------------------------------------------------------- */
+.form-admin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-admin__row {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .form-admin__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-admin__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-admin__label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.form-admin__input,
+.form-admin__select,
+.form-admin__textarea {
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  color: var(--color-text);
+}
+
+.form-admin__input:focus,
+.form-admin__select:focus,
+.form-admin__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-admin__textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-admin__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.form-admin__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Image uploader
+   -------------------------------------------------------------------------- */
+.image-uploader {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  border: 2px dashed var(--color-primary-brd);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-2);
+  text-align: center;
+  cursor: pointer;
+}
+
+.image-uploader:hover {
+  border-color: var(--color-primary);
+}
+
+.image-uploader__preview {
+  max-width: 160px;
+  max-height: 160px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.image-uploader__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.image-uploader__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+}
+
+.image-uploader__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Status badge
+   -------------------------------------------------------------------------- */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem var(--space-sm);
+  border-radius: var(--radius-lg);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+}
+
+.status-badge--pending {
+  background-color: var(--color-primary-dim);
+  border-color: var(--color-primary-brd);
+  color: var(--color-primary-hov);
+}
+
+.status-badge--read {
+  background-color: var(--color-surface-2);
+  border-color: var(--color-border);
+  color: var(--color-muted);
+}
+
+.status-badge--replied {
+  background-color: var(--color-surface-2);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.status-badge--active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.status-badge--inactive {
+  background-color: var(--color-surface-2);
+  border-color: var(--color-border);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Admin button
+   -------------------------------------------------------------------------- */
 .admin-btn {
   display: inline-flex;
   align-items: center;
@@ -86,27 +284,158 @@
   padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-sm);
   font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.admin-btn--primary {
   background-color: var(--color-primary);
   color: var(--color-text);
 }
 
-.admin-btn:hover {
-  background-color: var(--color-primary-hover);
+.admin-btn--primary:hover {
+  background-color: var(--color-primary-hov);
 }
 
-.admin-form-field {
+.admin-btn--danger {
+  background-color: transparent;
+  border-color: var(--color-primary-brd);
+  color: var(--color-primary-hov);
+}
+
+.admin-btn--danger:hover {
+  background-color: var(--color-primary-dim);
+  border-color: var(--color-primary);
+}
+
+.admin-btn--ghost {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.admin-btn--ghost:hover {
+  border-color: var(--color-text);
+}
+
+.admin-btn--block {
+  width: 100%;
+}
+
+.admin-btn--sm {
+  padding: 0.25rem var(--space-sm);
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Pagination
+   -------------------------------------------------------------------------- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--space-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 0.85rem;
+}
+
+.pagination__btn:hover {
+  border-color: var(--color-primary-brd);
+}
+
+.pagination__btn--active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Modal
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: var(--space-md);
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-md);
+  gap: var(--space-md);
 }
 
-.admin-form-field__input,
-.admin-form-field__select,
-.admin-form-field__textarea {
-  background-color: var(--color-surface-alt);
-  border: 1px solid var(--color-border);
+.modal__title {
+  font-size: 1.25rem;
+}
+
+.modal__body {
+  color: var(--color-muted);
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Alert (toast)
+   -------------------------------------------------------------------------- */
+.alert {
+  padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-sm);
-  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.alert--success {
+  background-color: var(--color-surface-2);
+  border-color: var(--color-border);
   color: var(--color-text);
+}
+
+.alert--error {
+  background-color: var(--color-primary-dim);
+  border-color: var(--color-primary-brd);
+  color: var(--color-primary-hov);
+}
+
+/* --------------------------------------------------------------------------
+   Utilities
+   Loaded last on purpose: .is-hidden must win any equal-specificity tie
+   against component rules defined earlier in this file.
+   -------------------------------------------------------------------------- */
+.is-hidden {
+  display: none;
 }

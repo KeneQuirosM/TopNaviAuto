@@ -10,28 +10,182 @@
 <body>
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI AUTO</a>
+      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI <span>AUTO</span></a>
       <nav class="admin-sidebar__nav">
-        <a href="/admin/dashboard.html" class="admin-sidebar__link">Dashboard</a>
         <a href="/admin/products.html" class="admin-sidebar__link admin-sidebar__link--active">Productos</a>
         <a href="/admin/promotions.html" class="admin-sidebar__link">Promociones</a>
+        <a href="/admin/contacts.html" class="admin-sidebar__link">Contactos</a>
+        <button type="button" class="admin-sidebar__link admin-sidebar__link--logout" data-js="logout-button">
+          Cerrar sesión
+        </button>
       </nav>
     </aside>
+
     <main class="admin-main">
-      <h1>Productos</h1>
-      <table class="admin-table" data-js="admin-products-table">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>SKU</th>
-            <th>Precio</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody data-js="admin-products-tbody"></tbody>
-      </table>
+      <header class="admin-main__header">
+        <h1 class="admin-main__title">Productos</h1>
+        <p class="admin-main__user">Sesión: <span data-js="current-user-name">Administrador</span></p>
+      </header>
+
+      <div class="admin-main__content">
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">Catálogo de productos</h2>
+            <button type="button" class="admin-btn admin-btn--primary" data-js="open-product-form">
+              Agregar producto
+            </button>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="data-table__head">Imagen</th>
+                <th class="data-table__head">Nombre</th>
+                <th class="data-table__head">Código</th>
+                <th class="data-table__head">Precio</th>
+                <th class="data-table__head">Estado</th>
+                <th class="data-table__head">Acciones</th>
+              </tr>
+            </thead>
+            <tbody data-js="products-table-body">
+              <tr class="data-table__row">
+                <td class="data-table__cell">
+                  <img class="data-table__thumb" src="/public/assets/img/placeholder.webp" alt="TN-9 Android 13" />
+                </td>
+                <td class="data-table__cell">TN-9 Android 13</td>
+                <td class="data-table__cell">TN-9-AND13</td>
+                <td class="data-table__cell">$189.00</td>
+                <td class="data-table__cell"><span class="status-badge status-badge--active">Activo</span></td>
+                <td class="data-table__cell">
+                  <div class="data-table__actions">
+                    <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-js="edit-product">Editar</button>
+                    <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-js="toggle-product">Desactivar</button>
+                    <button type="button" class="admin-btn admin-btn--danger admin-btn--sm" data-js="delete-product">Eliminar</button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="data-table__row data-table__row--alt">
+                <td class="data-table__cell">
+                  <img class="data-table__thumb" src="/public/assets/img/placeholder.webp" alt="TN-7 QLED CarPlay" />
+                </td>
+                <td class="data-table__cell">TN-7 QLED CarPlay</td>
+                <td class="data-table__cell">TN-7-QLED</td>
+                <td class="data-table__cell">$149.00</td>
+                <td class="data-table__cell"><span class="status-badge status-badge--inactive">Inactivo</span></td>
+                <td class="data-table__cell">
+                  <div class="data-table__actions">
+                    <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-js="edit-product">Editar</button>
+                    <button type="button" class="admin-btn admin-btn--ghost admin-btn--sm" data-js="toggle-product">Activar</button>
+                    <button type="button" class="admin-btn admin-btn--danger admin-btn--sm" data-js="delete-product">Eliminar</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="pagination" data-js="products-pagination">
+            <button type="button" class="pagination__btn" data-js="products-pagination-prev" disabled>‹</button>
+            <button type="button" class="pagination__btn pagination__btn--active">1</button>
+            <button type="button" class="pagination__btn" data-js="products-pagination-next">›</button>
+          </div>
+        </div>
+      </div>
     </main>
+  </div>
+
+  <!-- Modal: formulario de producto -->
+  <div class="modal-overlay is-hidden" data-js="product-modal">
+    <div class="modal">
+      <h2 class="modal__title" data-js="product-modal-title">Agregar producto</h2>
+
+      <form class="form-admin" data-js="product-form">
+        <div class="form-admin__row">
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="product-name">Nombre</label>
+            <input class="form-admin__input" type="text" id="product-name" name="name" data-js="product-name" required />
+          </div>
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="product-model-code">Código de modelo</label>
+            <input class="form-admin__input" type="text" id="product-model-code" name="model_code" data-js="product-model-code" required />
+          </div>
+        </div>
+
+        <div class="form-admin__row">
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="product-price">Precio</label>
+            <input class="form-admin__input" type="number" id="product-price" name="price" data-js="product-price" min="0" step="0.01" required />
+          </div>
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="product-stock">Stock</label>
+            <input class="form-admin__input" type="number" id="product-stock" name="stock" data-js="product-stock" min="0" step="1" />
+          </div>
+        </div>
+
+        <div class="form-admin__row">
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="product-category">Categoría</label>
+            <select class="form-admin__select" id="product-category" name="category" data-js="product-category" required>
+              <option value="">Selecciona categoría</option>
+              <option value="android">Android</option>
+              <option value="carplay">CarPlay</option>
+              <option value="camaras">Cámaras</option>
+              <option value="accesorios">Accesorios</option>
+            </select>
+          </div>
+          <div class="form-admin__group">
+            <label class="form-admin__label" for="product-badge">Badge</label>
+            <select class="form-admin__select" id="product-badge" name="badge" data-js="product-badge">
+              <option value="">Ninguno</option>
+              <option value="new">Nuevo</option>
+              <option value="bestseller">Más vendido</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-admin__group">
+          <label class="form-admin__label" for="product-tags">Tags (separados por coma)</label>
+          <input class="form-admin__input" type="text" id="product-tags" name="tags" data-js="product-tags" placeholder="CarPlay, GPS, 4G" />
+        </div>
+
+        <div class="form-admin__group">
+          <label class="form-admin__label" for="product-description">Descripción</label>
+          <textarea class="form-admin__textarea" id="product-description" name="description" data-js="product-description"></textarea>
+        </div>
+
+        <div class="form-admin__group">
+          <span class="form-admin__label">Imagen del producto</span>
+          <label class="image-uploader" data-js="product-image-uploader">
+            <img class="image-uploader__preview is-hidden" data-js="product-image-preview" alt="Previsualización del producto" />
+            <span class="image-uploader__placeholder" data-js="product-image-placeholder">
+              <svg class="image-uploader__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>Arrastra una imagen o haz clic para subir</span>
+            </span>
+            <input class="image-uploader__input" type="file" accept="image/jpeg,image/png,image/webp" data-js="product-image-input" />
+          </label>
+        </div>
+
+        <div class="form-admin__actions">
+          <button type="button" class="admin-btn admin-btn--ghost" data-js="close-product-form">Cancelar</button>
+          <button type="submit" class="admin-btn admin-btn--primary" data-js="save-product">Guardar producto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: confirmación de eliminación -->
+  <div class="modal-overlay is-hidden" data-js="confirm-modal">
+    <div class="modal">
+      <h2 class="modal__title">Eliminar producto</h2>
+      <p class="modal__body" data-js="confirm-modal-message">
+        ¿Seguro que deseas eliminar este producto? Esta acción no se puede deshacer.
+      </p>
+      <div class="modal__actions">
+        <button type="button" class="admin-btn admin-btn--ghost" data-js="confirm-modal-cancel">Cancelar</button>
+        <button type="button" class="admin-btn admin-btn--danger" data-js="confirm-modal-accept">Eliminar</button>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="/admin/assets/js/admin-main.js"></script>

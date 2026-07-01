@@ -9,20 +9,41 @@
 </head>
 <body>
   <main class="admin-login">
-    <form class="admin-card" data-js="admin-login-form">
-      <h1>TOP NAVI AUTO</h1>
-      <p>Panel de administración</p>
+    <form class="admin-card admin-login__card" data-js="login-form" autocomplete="off">
+      <p class="admin-login__logo">TOP NAVI <span>AUTO</span></p>
+      <p class="admin-login__subtitle">Panel de administración</p>
 
-      <div class="admin-form-field">
-        <label for="admin-email">Correo electrónico</label>
-        <input class="admin-form-field__input" type="email" id="admin-email" name="email" data-js="admin-email" required />
+      <div class="form-admin__group">
+        <label class="form-admin__label" for="login-email">Correo electrónico</label>
+        <input
+          class="form-admin__input"
+          type="email"
+          id="login-email"
+          name="email"
+          data-js="login-email"
+          autocomplete="email"
+          required
+        />
       </div>
-      <div class="admin-form-field">
-        <label for="admin-password">Contraseña</label>
-        <input class="admin-form-field__input" type="password" id="admin-password" name="password" data-js="admin-password" required />
+
+      <div class="form-admin__group">
+        <label class="form-admin__label" for="login-password">Contraseña</label>
+        <input
+          class="form-admin__input"
+          type="password"
+          id="login-password"
+          name="password"
+          data-js="login-password"
+          autocomplete="current-password"
+          required
+        />
       </div>
-      <button type="submit" class="admin-btn" data-js="admin-login-submit">Ingresar</button>
-      <p data-js="admin-login-feedback"></p>
+
+      <button type="submit" class="admin-btn admin-btn--primary admin-btn--block" data-js="login-submit">
+        Ingresar
+      </button>
+
+      <p class="alert alert--error is-hidden" data-js="login-error" role="alert"></p>
     </form>
   </main>
 

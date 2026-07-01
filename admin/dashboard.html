@@ -10,18 +10,43 @@
 <body>
   <div class="admin-layout">
     <aside class="admin-sidebar">
-      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI AUTO</a>
+      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI <span>AUTO</span></a>
       <nav class="admin-sidebar__nav">
-        <a href="/admin/dashboard.html" class="admin-sidebar__link admin-sidebar__link--active">Dashboard</a>
         <a href="/admin/products.html" class="admin-sidebar__link">Productos</a>
         <a href="/admin/promotions.html" class="admin-sidebar__link">Promociones</a>
+        <a href="/admin/contacts.html" class="admin-sidebar__link">Contactos</a>
+        <button type="button" class="admin-sidebar__link admin-sidebar__link--logout" data-js="logout-button">
+          Cerrar sesión
+        </button>
       </nav>
     </aside>
+
     <main class="admin-main">
-      <h1>Dashboard</h1>
-      <section class="admin-card" data-js="admin-dashboard-summary">
-        <p>Resumen general próximamente.</p>
-      </section>
+      <header class="admin-main__header">
+        <h1 class="admin-main__title">Panel TOP NAVI AUTO</h1>
+        <p class="admin-main__user">Sesión: <span data-js="current-user-name">Administrador</span></p>
+      </header>
+
+      <div class="admin-main__content">
+        <div class="stat-cards">
+          <div class="stat-card">
+            <p class="stat-card__value" data-js="stat-total-products">—</p>
+            <p class="stat-card__label">Total productos</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-card__value" data-js="stat-active-products">—</p>
+            <p class="stat-card__label">Productos activos</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-card__value" data-js="stat-active-promotions">—</p>
+            <p class="stat-card__label">Promociones vigentes</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-card__value" data-js="stat-pending-contacts">—</p>
+            <p class="stat-card__label">Solicitudes pendientes</p>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 

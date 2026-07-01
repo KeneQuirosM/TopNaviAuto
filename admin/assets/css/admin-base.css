@@ -1,80 +1,144 @@
 /* ==========================================================================
    TOP NAVI AUTO — Admin base styles
+   Reutiliza los design tokens, el reset y la tipografía del sitio público.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Inter:wght@400;600&display=swap');
+@import url('/public/assets/css/base.css');
 
-:root {
-  --color-bg: #0D0D0D;
-  --color-primary: #E8006F;
-  --color-primary-hover: #FF2D8A;
-  --color-surface: #1A1A1A;
-  --color-surface-alt: #222222;
-  --color-border: #2A2A2A;
-  --color-text: #F5F5F5;
-  --color-text-muted: rgba(245, 245, 245, 0.5);
-
-  --font-display: 'Barlow Condensed', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2.5rem;
-  --space-xl: 4rem;
-  --space-2xl: 6rem;
-
-  --container: 1200px;
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
+/* --------------------------------------------------------------------------
+   Admin layout — sidebar + main content
+   -------------------------------------------------------------------------- */
+.admin-layout {
+  display: grid;
+  grid-template-columns: 1fr;
   min-height: 100vh;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4 {
+@media (min-width: 768px) {
+  .admin-layout {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+.admin-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  background-color: var(--color-surface-1);
+  border-right: 1px solid var(--color-border);
+}
+
+.admin-sidebar__logo {
   font-family: var(--font-display);
   font-weight: 900;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  line-height: 1.1;
+  color: var(--color-text);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.admin-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
 }
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
-  color: inherit;
+.admin-sidebar__link {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
 }
 
-button {
-  cursor: pointer;
-  background: none;
-  border: none;
+.admin-sidebar__link:hover {
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+}
+
+.admin-sidebar__link--active {
+  background-color: var(--color-primary-dim);
+  border: 1px solid var(--color-primary-brd);
+  color: var(--color-primary-hov);
+}
+
+.admin-sidebar__link--logout {
+  margin-top: auto;
+}
+
+@media (max-width: 767px) {
+  .admin-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .admin-sidebar__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.admin-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-main__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-main__title {
+  font-size: 1.5rem;
+}
+
+.admin-main__user {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.admin-main__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Login screen
+   -------------------------------------------------------------------------- */
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.admin-login__card {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.admin-login__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.admin-login__subtitle {
+  color: var(--color-muted);
 }
