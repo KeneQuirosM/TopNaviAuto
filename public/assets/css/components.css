@@ -28,19 +28,19 @@
 }
 
 .btn--primary:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--color-primary-hov);
   color: var(--color-text);
 }
 
-.btn--secondary {
+.btn--ghost {
   background-color: transparent;
-  border-color: var(--color-border);
+  border-color: var(--color-text);
   color: var(--color-text);
 }
 
-.btn--secondary:hover {
-  border-color: var(--color-primary-hover);
-  color: var(--color-primary-hover);
+.btn--ghost:hover {
+  border-color: var(--color-primary-hov);
+  color: var(--color-primary-hov);
 }
 
 .btn--block {
@@ -55,124 +55,72 @@
   align-items: center;
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-lg);
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-surface-2);
   border: 1px solid var(--color-border);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-text-muted);
+  color: var(--color-muted);
 }
 
-.badge--primary {
+.badge--new {
+  background-color: var(--color-primary-dim);
+  border-color: var(--color-primary-brd);
+  color: var(--color-primary-hov);
+}
+
+.badge--bestseller {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-text);
 }
 
 /* --------------------------------------------------------------------------
-   Card
+   Tag (features de producto)
    -------------------------------------------------------------------------- */
-.card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-}
-
-.card__title {
-  margin-bottom: var(--space-xs);
-}
-
-.card__text {
-  color: var(--color-text-muted);
-}
-
-/* --------------------------------------------------------------------------
-   Stat
-   -------------------------------------------------------------------------- */
-.stat {
-  text-align: center;
-}
-
-.stat__value {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--color-primary);
-}
-
-.stat__label {
-  color: var(--color-text-muted);
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* --------------------------------------------------------------------------
-   Promo banner
-   -------------------------------------------------------------------------- */
-.promo-banner {
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  text-align: center;
-  padding: var(--space-xs) var(--space-sm);
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-/* --------------------------------------------------------------------------
-   Form
-   -------------------------------------------------------------------------- */
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-md);
-}
-
-.form-field__label {
-  font-weight: 600;
-  font-size: 0.875rem;
-}
-
-.form-field__input,
-.form-field__textarea,
-.form-field__select {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem var(--space-xs);
   border-radius: var(--radius-sm);
-  padding: var(--space-sm);
-  color: var(--color-text);
-}
-
-.form-field__input:focus,
-.form-field__textarea:focus,
-.form-field__select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
-.form-field__textarea {
-  resize: vertical;
-  min-height: 120px;
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
    Product card
    -------------------------------------------------------------------------- */
 .product-card {
-  background-color: var(--color-surface);
+  position: relative;
+  background-color: var(--color-surface-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.product-card__media {
+.product-card:hover {
+  border-color: var(--color-primary-brd);
+  transform: translateY(-4px);
+}
+
+.product-card__image {
+  position: relative;
   aspect-ratio: 4 / 3;
-  background-color: var(--color-surface-alt);
+  background-color: var(--color-surface-2);
+}
+
+.product-card__badge {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 1;
 }
 
 .product-card__body {
@@ -183,7 +131,10 @@
   flex: 1;
 }
 
-.product-card__title {
+.product-card__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
   font-size: 1.1rem;
 }
 
@@ -192,31 +143,220 @@
   font-weight: 600;
 }
 
+.product-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-xs);
+}
+
+/* Skeleton loader */
+.product-card--skeleton .product-card__image,
+.product-card--skeleton .product-card__name,
+.product-card--skeleton .product-card__price {
+  position: relative;
+  background-color: var(--color-surface-2);
+  overflow: hidden;
+  color: transparent;
+}
+
+.product-card--skeleton .product-card__name {
+  height: 1.1rem;
+  width: 70%;
+  border-radius: var(--radius-sm);
+}
+
+.product-card--skeleton .product-card__price {
+  height: 0.9rem;
+  width: 40%;
+  border-radius: var(--radius-sm);
+}
+
+.product-card--skeleton .product-card__image::after,
+.product-card--skeleton .product-card__name::after,
+.product-card--skeleton .product-card__price::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 245, 245, 0.08),
+    transparent
+  );
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
 /* --------------------------------------------------------------------------
-   Testimonial
+   Promo card
    -------------------------------------------------------------------------- */
-.testimonial {
-  background-color: var(--color-surface);
+.promo-card {
+  background-color: var(--color-surface-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
-.testimonial__quote {
+.promo-card--main {
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, var(--color-surface-1), var(--color-primary-dim));
+  border-color: var(--color-primary-brd);
+  justify-content: center;
+}
+
+.promo-card--mini {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Stat block
+   -------------------------------------------------------------------------- */
+.stat-block {
+  text-align: center;
+}
+
+.stat-block__number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-primary);
+}
+
+.stat-block__label {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   Compatibility card
+   -------------------------------------------------------------------------- */
+.compat-card {
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.compat-card__brand {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+}
+
+.compat-card__models {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Tech card
+   -------------------------------------------------------------------------- */
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.tech-card__icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary);
+}
+
+.tech-card__title {
+  font-size: 1.1rem;
+}
+
+.tech-card__desc {
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Testimonial card
+   -------------------------------------------------------------------------- */
+.testi-card {
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.testi-card__stars {
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+}
+
+.testi-card__text {
   color: var(--color-text);
-  margin-bottom: var(--space-sm);
 }
 
-.testimonial__author {
-  color: var(--color-text-muted);
+.testi-card__author {
+  color: var(--color-muted);
   font-size: 0.875rem;
   font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
-   Floating WhatsApp button
+   Form group
    -------------------------------------------------------------------------- */
-.whatsapp-float {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.form-group__label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.form-group__input,
+.form-group__select,
+.form-group__textarea {
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  color: var(--color-text);
+}
+
+.form-group__input:focus,
+.form-group__select:focus,
+.form-group__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-group__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* --------------------------------------------------------------------------
+   WhatsApp floating button
+   -------------------------------------------------------------------------- */
+.wa-button {
   position: fixed;
   bottom: var(--space-md);
   right: var(--space-md);
@@ -229,13 +369,14 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
 }
 
-.whatsapp-float:hover {
+.wa-button:hover {
   transform: scale(1.05);
 }
 
-.whatsapp-float__icon {
+.wa-button__icon {
   width: 28px;
   height: 28px;
 }

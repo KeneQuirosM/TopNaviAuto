@@ -11,12 +11,14 @@
   /* Colors */
   --color-bg: #0D0D0D;
   --color-primary: #E8006F;
-  --color-primary-hover: #FF2D8A;
-  --color-surface: #1A1A1A;
-  --color-surface-alt: #222222;
+  --color-primary-dim: rgba(232, 0, 111, 0.15);
+  --color-primary-brd: rgba(232, 0, 111, 0.30);
+  --color-primary-hov: #FF2D8A;
+  --color-surface-1: #1A1A1A;
+  --color-surface-2: #222222;
   --color-border: #2A2A2A;
   --color-text: #F5F5F5;
-  --color-text-muted: rgba(245, 245, 245, 0.5);
+  --color-muted: rgba(245, 245, 245, 0.5);
 
   /* Typography */
   --font-display: 'Barlow Condensed', sans-serif;
@@ -144,7 +146,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-primary-hov);
 }
 
 strong,

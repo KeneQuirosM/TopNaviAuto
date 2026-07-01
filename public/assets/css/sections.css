@@ -3,124 +3,102 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Stats
+   Promo banner
    -------------------------------------------------------------------------- */
-.stats {
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-surface);
+.promo-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  text-align: center;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.promo-banner__countdown {
+  display: inline-flex;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+}
+
+.promo-banner__cta {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 /* --------------------------------------------------------------------------
-   Promotions
+   Site nav — sticky header
    -------------------------------------------------------------------------- */
-.promotions__grid {
-  display: grid;
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(13, 13, 13, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: var(--space-md);
-  grid-template-columns: 1fr;
+  padding-block: var(--space-sm);
+}
+
+.site-nav__logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.site-nav__links {
+  display: none;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.site-nav__link {
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.site-nav__link:hover {
+  color: var(--color-primary-hov);
+}
+
+.site-nav__cta {
+  display: none;
 }
 
 @media (min-width: 768px) {
-  .promotions__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .site-nav__links {
+    display: flex;
+  }
+
+  .site-nav__cta {
+    display: inline-flex;
   }
 }
 
 /* --------------------------------------------------------------------------
-   Catalog
+   Hero
    -------------------------------------------------------------------------- */
-.catalog__filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-lg);
-  justify-content: center;
+.hero {
+  padding-block: var(--space-2xl);
 }
 
-.catalog__grid {
-  display: grid;
-  gap: var(--space-md);
-  grid-template-columns: repeat(1, 1fr);
-}
-
-@media (min-width: 640px) {
-  .catalog__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .catalog__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* --------------------------------------------------------------------------
-   Compatibility
-   -------------------------------------------------------------------------- */
-.compatibility__form {
-  display: grid;
-  gap: var(--space-sm);
-  grid-template-columns: 1fr;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-@media (min-width: 640px) {
-  .compatibility__form {
-    grid-template-columns: repeat(3, 1fr) auto;
-    align-items: end;
-  }
-}
-
-.compatibility__result {
-  margin-top: var(--space-md);
-  text-align: center;
-  color: var(--color-text-muted);
-}
-
-/* --------------------------------------------------------------------------
-   Pillars (Why TOP NAVI)
-   -------------------------------------------------------------------------- */
-.pillars__grid {
-  display: grid;
-  gap: var(--space-md);
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 640px) {
-  .pillars__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .pillars__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.pillar {
-  text-align: center;
-}
-
-.pillar__icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto var(--space-sm);
-  color: var(--color-primary);
-}
-
-/* --------------------------------------------------------------------------
-   B2B distributors
-   -------------------------------------------------------------------------- */
-.b2b {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.b2b__grid {
+.hero__grid {
   display: grid;
   gap: var(--space-xl);
   grid-template-columns: 1fr;
@@ -128,49 +106,341 @@
 }
 
 @media (min-width: 768px) {
-  .b2b__grid {
+  .hero__grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.b2b__benefits {
+.hero__content {
   display: flex;
   flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary-dim);
+  border: 1px solid var(--color-primary-brd);
+  color: var(--color-primary-hov);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero__headline {
+  color: var(--color-text);
+}
+
+.hero__sub {
+  color: var(--color-muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-sm);
 }
 
+.hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* --------------------------------------------------------------------------
-   Testimonials
+   Device mockup
    -------------------------------------------------------------------------- */
-.testimonials__grid {
+.device-mockup {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 16 / 10;
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-mockup__screen {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+}
+
+.device-mockup__bar {
+  width: 10%;
+  height: 60%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  transform-origin: bottom;
+  animation: eq-bar 1.2s ease-in-out infinite;
+}
+
+.device-mockup__bar:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.device-mockup__bar:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.device-mockup__bar:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.device-mockup__bar:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+/* --------------------------------------------------------------------------
+   Stats strip
+   -------------------------------------------------------------------------- */
+.stats-strip {
+  background-color: var(--color-surface-1);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--space-xl);
+}
+
+.stats-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .stats-strip__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Catalog section
+   -------------------------------------------------------------------------- */
+.catalog-section__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  justify-content: center;
+}
+
+.catalog-section__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 640px) {
+  .catalog-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalog-section__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Promo section
+   -------------------------------------------------------------------------- */
+.promo-section__grid {
   display: grid;
   gap: var(--space-md);
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
-  .testimonials__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .promo-section__grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.promo-section__minis {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Compatibility section
+   -------------------------------------------------------------------------- */
+.compat-section {
+  background-color: var(--color-bg);
+}
+
+.compat-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+@media (min-width: 1024px) {
+  .compat-section__grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
 /* --------------------------------------------------------------------------
-   Contact
+   Tech section
    -------------------------------------------------------------------------- */
-.contact__grid {
+.tech-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .tech-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   B2B banner
+   -------------------------------------------------------------------------- */
+.b2b-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: flex-start;
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-primary-brd);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .b2b-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.b2b-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.b2b-banner__text {
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Testimonials section
+   -------------------------------------------------------------------------- */
+.testi-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .testi-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Contact section
+   -------------------------------------------------------------------------- */
+.contact-section__inner {
   display: grid;
   gap: var(--space-xl);
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
-  .contact__grid {
+  .contact-section__inner {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.contact__info {
+.contact-section__info {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Site footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-xl);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.site-footer__heading {
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.site-footer__brand-text {
+  color: var(--color-muted);
+}
+
+.site-footer__col a {
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.site-footer__col a:hover {
+  color: var(--color-primary-hov);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  align-items: center;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+@media (min-width: 768px) {
+  .site-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.site-footer__bottom a {
+  color: var(--color-muted);
+}
+
+.site-footer__bottom a:hover {
+  color: var(--color-primary-hov);
 }
