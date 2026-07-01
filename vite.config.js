@@ -5,7 +5,7 @@ export default defineConfig({
   publicDir: false,
   resolve: {
     alias: {
-      '@lib': resolve(__dirname, 'lib'),
+      '@': resolve(__dirname, 'lib'),
     },
   },
   build: {
