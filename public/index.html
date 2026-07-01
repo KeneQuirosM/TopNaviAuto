@@ -20,9 +20,9 @@
   <header>
     <!-- 1. Banner de promoción -->
     <div id="promo-banner" class="promo-banner" data-js="promo-banner">
-      <p>Envío gratis en pedidos mayoristas + 12 meses de garantía</p>
-      <span class="promo-banner__countdown" data-js="promo-countdown">03d : 12h : 45m</span>
-      <a href="#promociones" class="promo-banner__cta">Ver promociones</a>
+      <p data-js="promo-title">Envío gratis en pedidos mayoristas + 12 meses de garantía</p>
+      <span class="promo-banner__countdown" data-js="promo-countdown"></span>
+      <a href="#promociones" class="promo-banner__cta" data-js="promo-cta">Ver promociones</a>
     </div>
 
     <!-- 2. Nav sticky -->
@@ -141,34 +141,34 @@
         </div>
 
         <div class="catalog-section__grid" data-js="catalog-grid">
-          <article class="product-card animate-fade-in-up">
+          <article class="product-card reveal" data-js="reveal">
             <div class="product-card__image">
               <span class="product-card__badge badge badge--new">Nuevo</span>
             </div>
             <div class="product-card__body">
               <h3 class="product-card__name">TN-9 Android 13</h3>
               <p class="product-card__price">$189.00</p>
-              <ul class="product-card__tags">
-                <li class="tag">CarPlay</li>
-                <li class="tag">GPS</li>
-                <li class="tag">4G</li>
-              </ul>
+              <div class="product-card__tags">
+                <span class="tag">CarPlay</span>
+                <span class="tag">GPS</span>
+                <span class="tag">4G</span>
+              </div>
             </div>
           </article>
-          <article class="product-card animate-fade-in-up">
+          <article class="product-card reveal" data-js="reveal">
             <div class="product-card__image">
               <span class="product-card__badge badge badge--bestseller">Best seller</span>
             </div>
             <div class="product-card__body">
               <h3 class="product-card__name">TN-7 QLED CarPlay</h3>
               <p class="product-card__price">$149.00</p>
-              <ul class="product-card__tags">
-                <li class="tag">CarPlay</li>
-                <li class="tag">Android Auto</li>
-              </ul>
+              <div class="product-card__tags">
+                <span class="tag">CarPlay</span>
+                <span class="tag">Android Auto</span>
+              </div>
             </div>
           </article>
-          <article class="product-card product-card--skeleton animate-fade-in-up" aria-hidden="true">
+          <article class="product-card product-card--skeleton" aria-hidden="true">
             <div class="product-card__image"></div>
             <div class="product-card__body">
               <p class="product-card__name"></p>
@@ -261,22 +261,22 @@
           <h2>Lo que dicen nuestros clientes</h2>
         </div>
         <div class="testi-section__grid" data-js="testimonials-grid">
-          <blockquote class="testi-card animate-fade-in-up">
+          <blockquote class="testi-card reveal" data-js="reveal">
             <p class="testi-card__stars">★★★★★</p>
             <p class="testi-card__text">"Excelente calidad de imagen y muy fácil de instalar."</p>
             <cite class="testi-card__author">— Cliente verificado</cite>
           </blockquote>
-          <blockquote class="testi-card animate-fade-in-up">
+          <blockquote class="testi-card reveal" data-js="reveal">
             <p class="testi-card__stars">★★★★★</p>
             <p class="testi-card__text">"Como distribuidor, el soporte y la garantía han sido clave."</p>
             <cite class="testi-card__author">— Distribuidor autorizado</cite>
           </blockquote>
-          <blockquote class="testi-card animate-fade-in-up">
+          <blockquote class="testi-card reveal" data-js="reveal">
             <p class="testi-card__stars">★★★★★</p>
             <p class="testi-card__text">"El CarPlay inalámbrico funciona perfecto desde el día uno."</p>
             <cite class="testi-card__author">— Cliente verificado</cite>
           </blockquote>
-          <blockquote class="testi-card animate-fade-in-up">
+          <blockquote class="testi-card reveal" data-js="reveal">
             <p class="testi-card__stars">★★★★★</p>
             <p class="testi-card__text">"El reemplazo de garantía fue rápido y sin complicaciones."</p>
             <cite class="testi-card__author">— Distribuidor autorizado</cite>
@@ -294,25 +294,37 @@
           <p><strong>Correo:</strong> ventas@topnaviauto.com</p>
           <p><strong>Teléfono:</strong> +52 000 000 0000</p>
         </div>
-        <form class="contact-section__form" data-js="contact-form">
+        <form class="contact-section__form" data-js="contact-form" novalidate>
           <div class="form-group">
             <label class="form-group__label" for="contact-name">Nombre</label>
             <input class="form-group__input" type="text" id="contact-name" name="name" data-js="contact-name" required />
-          </div>
-          <div class="form-group">
-            <label class="form-group__label" for="contact-email">Correo electrónico</label>
-            <input class="form-group__input" type="email" id="contact-email" name="email" data-js="contact-email" required />
+            <p class="form-group__error" data-js="contact-name-error" role="alert"></p>
           </div>
           <div class="form-group">
             <label class="form-group__label" for="contact-phone">Teléfono</label>
-            <input class="form-group__input" type="tel" id="contact-phone" name="phone" data-js="contact-phone" />
+            <input class="form-group__input" type="tel" id="contact-phone" name="phone" data-js="contact-phone" required />
+            <p class="form-group__error" data-js="contact-phone-error" role="alert"></p>
+          </div>
+          <div class="form-group">
+            <label class="form-group__label" for="contact-inquiry-type">Tipo de consulta</label>
+            <select class="form-group__select" id="contact-inquiry-type" name="inquiry_type" data-js="contact-inquiry-type" required>
+              <option value="general">Consulta general</option>
+              <option value="cotizacion">Cotización de producto</option>
+              <option value="distribuidor">Quiero ser distribuidor</option>
+              <option value="garantia">Garantía / soporte técnico</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-group__label" for="contact-vehicle-model">Modelo de tu vehículo</label>
+            <input class="form-group__input" type="text" id="contact-vehicle-model" name="vehicle_model" data-js="contact-vehicle-model" />
           </div>
           <div class="form-group">
             <label class="form-group__label" for="contact-message">Mensaje</label>
             <textarea class="form-group__textarea" id="contact-message" name="message" data-js="contact-message" required></textarea>
+            <p class="form-group__error" data-js="contact-message-error" role="alert"></p>
           </div>
           <button type="submit" class="btn btn--primary btn--block" data-js="contact-submit">Enviar mensaje</button>
-          <p data-js="contact-feedback"></p>
+          <p data-js="contact-feedback" role="status"></p>
         </form>
       </div>
     </section>

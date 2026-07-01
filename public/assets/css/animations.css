@@ -32,6 +32,20 @@
   }
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease both;
 }
@@ -56,6 +70,15 @@
   animation-delay: 0.4s;
 }
 
+/* --------------------------------------------------------------------------
+   Utilities
+   Loaded last on purpose: .is-hidden must win any equal-specificity tie
+   against component/section rules that also set `display`.
+   -------------------------------------------------------------------------- */
+.is-hidden {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -63,9 +86,15 @@
 
   .animate-fade-in-up,
   .device-mockup__bar,
+  .btn--loading::after,
   .product-card--skeleton .product-card__image::after,
   .product-card--skeleton .product-card__name::after,
   .product-card--skeleton .product-card__price::after {
     animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
