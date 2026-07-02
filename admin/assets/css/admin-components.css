@@ -431,6 +431,15 @@
   color: var(--color-primary-hov);
 }
 
+.alert--toast {
+  position: fixed;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: 400;
+  max-width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
 /* --------------------------------------------------------------------------
    Utilities
    Loaded last on purpose: .is-hidden must win any equal-specificity tie

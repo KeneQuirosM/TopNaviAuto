@@ -15,7 +15,7 @@
         <a href="/admin/products.html" class="admin-sidebar__link">Productos</a>
         <a href="/admin/promotions.html" class="admin-sidebar__link admin-sidebar__link--active">Promociones</a>
         <a href="/admin/contacts.html" class="admin-sidebar__link">Contactos</a>
-        <button type="button" class="admin-sidebar__link admin-sidebar__link--logout" data-js="logout-button">
+        <button type="button" class="admin-sidebar__link admin-sidebar__link--logout" data-js="logout-btn">
           Cerrar sesión
         </button>
       </nav>
@@ -24,7 +24,7 @@
     <main class="admin-main">
       <header class="admin-main__header">
         <h1 class="admin-main__title">Promociones</h1>
-        <p class="admin-main__user">Sesión: <span data-js="current-user-name">Administrador</span></p>
+        <p class="admin-main__user">Sesión: <span data-js="admin-username">Administrador</span></p>
       </header>
 
       <div class="admin-main__content">
@@ -95,7 +95,7 @@
     <div class="modal">
       <h2 class="modal__title" data-js="promotion-modal-title">Agregar promoción</h2>
 
-      <form class="form-admin" data-js="promotion-form">
+      <form class="form-admin" data-js="promotion-form" novalidate>
         <div class="form-admin__group">
           <label class="form-admin__label" for="promotion-title">Título</label>
           <input class="form-admin__input" type="text" id="promotion-title" name="title" data-js="promotion-title" required />
