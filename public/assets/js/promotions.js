@@ -7,11 +7,21 @@ const PromotionsModule = (() => {
   const COUNTDOWN_SELECTOR = '[data-js="promo-countdown"]';
   const CTA_SELECTOR = '[data-js="promo-cta"]';
   const DEFAULT_CTA_HREF = '#promociones';
+  // Solo se permiten enlaces relativos o http(s): un cta_url tipo
+  // "javascript:..." nunca debe llegar a setAttribute('href', ...).
+  const SAFE_HREF_PATTERN = /^(https?:\/\/|\/|#)/i;
 
   let intervalId = null;
 
   function pad(value) {
     return String(value).padStart(2, '0');
+  }
+
+  function resolveSafeHref(ctaUrl) {
+    if (typeof ctaUrl === 'string' && SAFE_HREF_PATTERN.test(ctaUrl.trim())) {
+      return ctaUrl.trim();
+    }
+    return DEFAULT_CTA_HREF;
   }
 
   function formatCountdown(msRemaining) {
@@ -65,7 +75,7 @@ const PromotionsModule = (() => {
       const ctaEl = UI.qs(CTA_SELECTOR, banner);
 
       if (titleEl) UI.setText(titleEl, promotion.title);
-      if (ctaEl) ctaEl.setAttribute('href', promotion.cta_url || DEFAULT_CTA_HREF);
+      if (ctaEl) ctaEl.setAttribute('href', resolveSafeHref(promotion.cta_url));
       if (countdownEl && promotion.ends_at) {
         startCountdown(banner, countdownEl, promotion.ends_at);
       }

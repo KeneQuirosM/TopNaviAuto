@@ -70,10 +70,16 @@ async function loadDashboardStats() {
   }
 }
 
+function revealLayout() {
+  const layout = document.querySelector('[data-js="admin-layout"]');
+  if (layout) layout.classList.remove('is-hidden');
+}
+
 async function init() {
   const session = await requireAuth();
   if (!session) return;
 
+  revealLayout();
   showUsername(session);
   initLogout();
   await loadDashboardStats();
