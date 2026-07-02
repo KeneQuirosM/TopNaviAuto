@@ -50,7 +50,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
-  padding-block: var(--space-sm);
+  padding: 0.85rem 2rem;
 }
 
 .site-nav__logo {
@@ -59,6 +59,7 @@
   font-size: 1.5rem;
   text-transform: uppercase;
   color: var(--color-text);
+  white-space: nowrap;
 }
 
 .site-nav__links {
@@ -91,6 +92,10 @@
   }
 }
 
+.site-nav__cta {
+  border-radius: 5px;
+}
+
 /* --------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------- */
@@ -121,7 +126,7 @@
   display: inline-flex;
   align-self: flex-start;
   padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   background-color: var(--color-primary-dim);
   border: 1px solid var(--color-primary-brd);
   color: var(--color-primary-hov);
@@ -155,24 +160,51 @@
    Device mockup
    -------------------------------------------------------------------------- */
 .device-mockup {
+  position: relative;
   width: 100%;
   max-width: 360px;
-  aspect-ratio: 16 / 10;
-  background-color: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
+  background-color: #1A1A1A;
+  border: 1.5px solid #2E2E2E;
+  border-radius: 14px;
+  padding: 1.25rem;
+  padding-bottom: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.device-mockup::before {
+  content: '';
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+}
+
+.device-mockup::after {
+  content: '';
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 16px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: var(--color-surface-2);
+  box-shadow:
+    -22px 0 0 var(--color-surface-2),
+    -44px 0 0 var(--color-surface-2);
+}
+
 .device-mockup__screen {
   width: 100%;
-  height: 100%;
-  background-color: var(--color-bg);
+  height: 130px;
+  background-color: #000;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -209,10 +241,45 @@
    Stats strip
    -------------------------------------------------------------------------- */
 .stats-strip {
+  position: relative;
   background-color: var(--color-surface-1);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
   padding-block: var(--space-xl);
+}
+
+/* Separador EQ hero → stats / stats → promociones, simulado con
+   box-shadow (una sola animación compartida: las barras respiran en
+   fase, no escalonadas — limitación de simular varias barras sin
+   marcado nuevo). */
+.stats-strip::before,
+.stats-strip::after {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 20px;
+  background: rgba(232, 0, 111, 0.25);
+  border-radius: 2px;
+  box-shadow:
+    6px 0 0 rgba(232, 0, 111, 0.25),
+    12px 0 0 rgba(232, 0, 111, 0.25),
+    -6px 0 0 rgba(232, 0, 111, 0.25),
+    -12px 0 0 rgba(232, 0, 111, 0.25);
+  animation: eq-bar 1.4s ease-in-out infinite alternate;
+}
+
+.stats-strip::before {
+  position: absolute;
+  top: -32px;
+  left: calc(50% - 1.5px);
+  transform-origin: bottom;
+}
+
+.stats-strip::after {
+  position: absolute;
+  bottom: -32px;
+  left: calc(50% - 1.5px);
+  transform-origin: bottom;
 }
 
 .stats-strip__grid {
@@ -407,7 +474,9 @@
 }
 
 .site-footer__heading {
-  font-size: 1rem;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-bottom: var(--space-xs);
 }
 
@@ -431,7 +500,7 @@
   gap: var(--space-xs);
   align-items: center;
   padding-top: var(--space-md);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #1E1E1E;
   text-align: center;
   color: var(--color-muted);
 }
@@ -444,7 +513,8 @@
 }
 
 .site-footer__bottom a {
-  color: var(--color-muted);
+  font-size: 12px;
+  color: rgba(245, 245, 245, 0.2);
 }
 
 .site-footer__bottom a:hover {
