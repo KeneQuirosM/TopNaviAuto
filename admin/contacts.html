@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contactos — TOP NAVI AUTO Admin</title>
+  <link rel="stylesheet" href="/admin/assets/css/admin-base.css" />
+  <link rel="stylesheet" href="/admin/assets/css/admin-components.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <a href="/admin/dashboard.html" class="admin-sidebar__logo">TOP NAVI <span>AUTO</span></a>
+      <nav class="admin-sidebar__nav">
+        <a href="/admin/products.html" class="admin-sidebar__link">Productos</a>
+        <a href="/admin/promotions.html" class="admin-sidebar__link">Promociones</a>
+        <a href="/admin/contacts.html" class="admin-sidebar__link admin-sidebar__link--active">Contactos</a>
+        <button type="button" class="admin-sidebar__link admin-sidebar__link--logout" data-js="logout-btn">
+          Cerrar sesión
+        </button>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-main__header">
+        <h1 class="admin-main__title">Contactos</h1>
+        <p class="admin-main__user">Sesión: <span data-js="admin-username">Administrador</span></p>
+      </header>
+
+      <div class="admin-main__content">
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">Solicitudes de contacto</h2>
+          </div>
+
+          <div class="contacts-filters" data-js="contacts-filters">
+            <button type="button" class="admin-btn admin-btn--ghost is-active" data-js="contacts-filter" data-filter="all">Todos</button>
+            <button type="button" class="admin-btn admin-btn--ghost" data-js="contacts-filter" data-filter="pending">Pendientes</button>
+            <button type="button" class="admin-btn admin-btn--ghost" data-js="contacts-filter" data-filter="read">Leídos</button>
+            <button type="button" class="admin-btn admin-btn--ghost" data-js="contacts-filter" data-filter="replied">Respondidos</button>
+          </div>
+
+          <div class="data-table__wrapper">
+
+            <table class="data-table">
+            <thead>
+              <tr>
+                <th class="data-table__head">Nombre</th>
+                <th class="data-table__head">Teléfono</th>
+                <th class="data-table__head">Tipo</th>
+                <th class="data-table__head">Vehículo</th>
+                <th class="data-table__head">Mensaje</th>
+                <th class="data-table__head">Estado</th>
+                <th class="data-table__head">Fecha</th>
+                <th class="data-table__head">Acciones</th>
+              </tr>
+            </thead>
+            <tbody data-js="contacts-table-body"></tbody>
+          </table>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/admin/assets/js/admin-main.js"></script>
+  <script type="module" src="/admin/assets/js/admin-contacts.js"></script>
+</body>
+</html>

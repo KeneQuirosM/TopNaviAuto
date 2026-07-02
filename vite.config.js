@@ -18,6 +18,7 @@ export default defineConfig({
         adminDashboard: resolve(__dirname, 'admin/dashboard.html'),
         adminProducts: resolve(__dirname, 'admin/products.html'),
         adminPromotions: resolve(__dirname, 'admin/promotions.html'),
+        adminContacts: resolve(__dirname, 'admin/contacts.html'),
       },
     },
   },

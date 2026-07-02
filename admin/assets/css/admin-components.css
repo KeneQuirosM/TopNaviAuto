@@ -63,6 +63,10 @@
 /* --------------------------------------------------------------------------
    Data table
    -------------------------------------------------------------------------- */
+.data-table__wrapper {
+  overflow-x: auto;
+}
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -273,6 +277,18 @@
   color: var(--color-muted);
 }
 
+.status-badge--live {
+  background-color: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.35);
+  color: #22c55e;
+}
+
+.status-badge--upcoming {
+  background-color: rgba(234, 179, 8, 0.15);
+  border-color: rgba(234, 179, 8, 0.35);
+  color: #eab308;
+}
+
 /* --------------------------------------------------------------------------
    Admin button
    -------------------------------------------------------------------------- */
@@ -326,6 +342,22 @@
 .admin-btn--sm {
   padding: 0.25rem var(--space-sm);
   font-size: 0.8rem;
+}
+
+.admin-btn.is-active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   Contact filters
+   -------------------------------------------------------------------------- */
+.contacts-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
 }
 
 /* --------------------------------------------------------------------------
